@@ -1,4 +1,4 @@
-package org.example;
+package org.ieszaidinvergeles.dam;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
