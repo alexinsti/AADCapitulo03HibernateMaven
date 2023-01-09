@@ -10,5 +10,6 @@
         <property name="connection.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.hbm2ddl.auto">create</property>
         <property name="hibernate.show.sql">true</property>
+        <mapping class="org.ieszaidinvergeles.dam.entities.Persona"/>
     </session-factory>
 </hibernate-configuration>
