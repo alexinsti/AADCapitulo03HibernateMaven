@@ -3,6 +3,8 @@ package org.ieszaidinvergeles.dam.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "personas")
@@ -16,7 +18,17 @@ public class Persona {
     private int edad;
     @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;
-
+    @ManyToOne
+    Empresa empresa;
+    @ManyToMany(cascade= {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name="persona_deporte",
+            joinColumns = @JoinColumn(name="persona_id"),
+            inverseJoinColumns = @JoinColumn(name="deporte_id")
+    )
+    private Set<Deporte> deportes = new HashSet<>();
     public Persona() {
     }
 
@@ -63,6 +75,14 @@ public class Persona {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    public Set<Deporte> getDeportes() {
+        return deportes;
+    }
+
+    public void setDeportes(Set<Deporte> deportes) {
+        this.deportes = deportes;
+    }
+
     @Override
     public String toString() {
         return "Persona{" +
@@ -71,5 +91,13 @@ public class Persona {
                 ", edad=" + edad +
                 ", fechaNacimiento=" + fechaNacimiento +
                 '}';
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
 }

@@ -8,8 +8,8 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 public class Main {
     public static void main(String[] args) {
-        //HibernateConexion.conexion();
-        HibernateInsercion.insertar();
+        HibernateConexion.conexion();
+        //HibernateInsercion.insertar();
 
         /*final StandardServiceRegistry registro = new StandardServiceRegistryBuilder().configure().build();
         final SessionFactory factory = new MetadataSources(registro).buildMetadata().buildSessionFactory();
